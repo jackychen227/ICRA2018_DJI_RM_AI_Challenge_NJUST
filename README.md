@@ -41,7 +41,7 @@ $ cd catkin_ws/src/
 ~/catkin_ws/src$ catkin_init_workspace
 ~/catkin_ws/src$ cd ..
 ~/catkin_ws$ catkin_make
-$ echo "source /home/cqw/catkin_ws/devel/setup.bash" >> ~/.bashrc
+$ echo "source /home/cqw/catkin_ws/devel/setup.bash" >> ~/.bashrc#Bash
 
 Third-party Library
 $ sudo apt-get install ros-kinetic-joy
