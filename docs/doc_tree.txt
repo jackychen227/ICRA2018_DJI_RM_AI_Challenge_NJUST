@@ -1,0 +1,111 @@
+Attention:please open this txt by gedit or vim.
+
+
+
+
+
+ICRA2018_DJI_RM_AI_Challenge_NJUST
+├── infantry_2dnav
+│   ├── CMakeLists.txt
+│   ├── config
+│   │   ├── base_local_planner_params.yaml
+│   │   ├── common_costmap_params.yaml
+│   │   ├── global_costmap_params.yaml
+│   │   ├── infantry_navigation.rviz
+│   │   └── local_costmap_params.yaml
+│   ├── include
+│   │   └── infantry_2dnav
+│   ├── launch
+│   │   ├── amcl_infantry.launch
+│   │   ├── move_base.launch
+│   │   └── teleop_joy.launch
+│   ├── map
+│   │   ├── icra.pgm
+│   │   ├── icra.yaml
+│   │   ├── map.pgm
+│   │   └── map.yaml
+│   ├── package.xml
+│   └── src
+│       └── teleop_joy.cpp
+├── infantry_teleop_tools
+│   ├── joystick_teleop
+│   │   ├── CMakeLists.txt
+│   │   ├── include
+│   │   │   └── joystick_teleop
+│   │   ├── launch
+│   │   │   └── joystick_teleop.launch
+│   │   ├── package.xml
+│   │   └── src
+│   │       └── joystick_teleop.cpp
+│   └── keyboard_teleop
+│       ├── CMakeLists.txt
+│       ├── include
+│       │   └── keyboard_teleop
+│       ├── package.xml
+│       ├── scripts
+│       │   └── keyboard_teleop.py
+│       └── src
+│           └── joystick_teleop.cpp
+├── robots_description
+│   └── infantryb
+│       ├── CMakeLists.txt
+│       ├── config
+│       │   ├── infantryb.yaml
+│       │   ├── infantry_control_copy.yaml
+│       │   ├── infantry_control.yaml
+│       │   └── joint_names_infantryb.yaml
+│       ├── launch
+│       │   ├── display.launch
+│       │   ├── gazebo_color.launch
+│       │   ├── gazebo.launch
+│       │   ├── gazebo_mapping.launch
+│       │   ├── simulation_environments.launch
+│       │   ├── spawn_infantry_blue.launch
+│       │   └── spawn_infantry_red.launch
+│       ├── meshes
+│       │   ├── base_link.STL
+│       │   ├── bl_wheel_Link.STL
+│       │   ├── br_wheel_Link.STL
+│       │   ├── camera_Link.STL
+│       │   ├── fl_wheel_Link.STL
+│       │   ├── fr_wheel_Link.STL
+│       │   ├── laser_Link.STL
+│       │   ├── led_Link.STL
+│       │   ├── pitch_Link.STL
+│       │   └── yaw_Link.STL
+│       ├── package.xml
+│       ├── robots
+│       │   ├── infantry_blue.xacro
+│       │   ├── infantryb.urdf
+│       │   ├── infantryb.urdf.xacro
+│       │   ├── infantry_copy.transmission.xacro
+│       │   ├── infantry.gazebo
+│       │   ├── infantry.gazebo.xacro
+│       │   ├── infantry_processed.urdf
+│       │   ├── infantry_red.xacro
+│       │   ├── infantry.transmission.xacro
+│       │   └── infantry.xacro
+│       ├── textures
+│       └── worlds
+│           └── ICRA_3D_MAP.world
+└── vision
+    └── infantry_vision
+        ├── CMakeLists.txt
+        ├── config
+        │   ├── param_config.xml
+        │   ├── small_template.bmp
+        │   └── template.bmp
+        ├── include
+        │   └── infantry_vision
+        ├── package.xml
+        └── src
+            ├── armor_detector.cpp
+            ├── armor_detector.hpp
+            ├── image_prod_cons.cpp
+            ├── image_prod_cons.hpp
+            ├── settings.cpp
+            ├── settings.hpp
+            └── sse_to_neon.hpp
+
+32 directories, 69 files
+
