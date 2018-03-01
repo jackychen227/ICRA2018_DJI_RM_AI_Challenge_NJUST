@@ -43,7 +43,8 @@ $ cd catkin_ws/src/
 ~/catkin_ws$ catkin_make
 $ echo "source /home/cqw/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
-Third-party Library
+#### Third-party Library
+```Bash
 $ sudo apt-get install ros-kinetic-joy
 $ sudo apt-get install ros-kinetic-map-server
 $ sudo apt-get install ros-kinetic-amcl
@@ -52,35 +53,39 @@ $ sudo apt-get install ros-kinetic-controller-manager
 $ sudo apt-get install ros-kinetic-cv-bridge
 $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 $ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
-
+```
 # Build and Install
+```Bash
 ~$ cd catkin_ws/src/
 ~/catkin_ws/src$ git clone 
 ~/catkin_ws$ catkin_make
 # Run
 $ roscore
 $ roslaunch infantryb display.launch
-
+```
 ## simulation part:
 Tip: We set the "gui" parameter false as default in order to ease the computing load of GPU, if you want to get the gazebo view, you can change the false to true in the launch file.
-
+```Bash
 $ roslaunch infantryb simulation_environments.launch
-
+```
 
 ## armor detecting part:
+```Bash
 $ rosrun infantry_vision image_prod_cons 
-
+```
 
 
 
 ## joystick teleop part:
+```Bash
 $ roslaunch joystick_teleop joystick_teleop.launch
- 
+``` 
 
 ## navigation part:
+```Bash
 $ roslaunch infantryb gazebo_color.launch
 $ roslaunch infantry_2dnav move_base.launch
- 
+``` 
 
 
 
