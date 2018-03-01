@@ -1,5 +1,5 @@
 # ICRA2018_DJI_RM_AI_Challenge_NJUST
-ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is a stack for the research of [RoboMaster AI challenge](https://www.robomaster.com/zh-CN/resource/pages/729?type=announcementSub), developed by team Alliance at NJUST. This repository mainly focuses on the simulation part.
+`ICRA2018_DJI_RM_AI_CHALLENGE_NJUST` is a stack for the research of [RoboMaster AI challenge](https://www.robomaster.com/zh-CN/resource/pages/729?type=announcementSub), developed by team Alliance at NJUST. This repository mainly focuses on the simulation part.
 
 At the beginning of the project, we planned to create a stack of simulation environment to test our algorithm and train our deep reinforcement learning based decision making model. Then we would put it into practice. After weeks of brokenly developing, we basically got the simulation part done with some flaw. Considering our limited time and effort, we decide to make the simulation part an open-source software stack. It will be our great pleasure if the stack do something useful during your development.
 
@@ -9,12 +9,10 @@ In this project, we make integrated application of ROS(Kinetic) and GAZEBO to bu
 Robot simulation is an essential tool in every roboticist's toolbox. A well-designed simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo offers the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. 
 
 ## Packages brief description
-package	description	state
-robots_description	main package of simulation environments	85% finished
-infantry_teleop_tools	infantry teleoperation with joystick and keyboard	OK
-infantry_2dnav	infantry navigation with the navigation stack	OK
-Vision	armor detecting package(refer to RoboMaster	developing
-	open-source code)
+	• robots_description: main package of simulation environments(85% finished)
+	• infantry_teleop_tools: infantry teleoperation with joystick and keyboard(OK)
+	• infantry_2dnav: infantry navigation with the navigation stack(OK)
+	• Vision: armor detecting package(refer to RoboMaster open-source code)(developing)
 ## Software Requirements
 	• ROS kinetic (Ubuntu 16.04)
 ## Hardware
@@ -83,10 +81,10 @@ $ roslaunch joystick_teleop joystick_teleop.launch
 ```
 
 ## navigation part:
-```Bash
+
 $ roslaunch infantryb gazebo_color.launch
 $ roslaunch infantry_2dnav move_base.launch
-``` 
+
 
 # Documents
 Please refer to the docs folder.
