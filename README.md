@@ -59,7 +59,10 @@ $ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
 ~$ cd catkin_ws/src/
 ~/catkin_ws/src$ git clone 
 ~/catkin_ws$ catkin_make
+```
+
 # Run
+```Bash
 $ roscore
 $ roslaunch infantryb display.launch
 ```
@@ -75,9 +78,9 @@ $ rosrun infantry_vision image_prod_cons
 ```
 
 ## joystick teleop part:
-
+```Bash
 $ roslaunch joystick_teleop joystick_teleop.launch
- 
+```
 
 ## navigation part:
 ```Bash
