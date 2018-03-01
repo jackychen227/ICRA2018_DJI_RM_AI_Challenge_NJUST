@@ -74,8 +74,6 @@ $ roslaunch infantryb simulation_environments.launch
 $ rosrun infantry_vision image_prod_cons 
 ```
 
-
-
 ## joystick teleop part:
 ```Bash
 $ roslaunch joystick_teleop joystick_teleop.launch
@@ -86,12 +84,6 @@ $ roslaunch joystick_teleop joystick_teleop.launch
 $ roslaunch infantryb gazebo_color.launch
 $ roslaunch infantry_2dnav move_base.launch
 ``` 
-
-
-
-
-
-
 
 # Documents
 Please refer to the docs folder.
