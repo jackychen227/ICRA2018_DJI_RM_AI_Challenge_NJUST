@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<!--Parameter for Debug-->
+<show_image>1</show_image>
+<save_result>0</save_result>
+
+<!--Parameter for Rune System-->
+<sudoku_cell_width>66</sudoku_cell_width>
+<sudoku_cell_height>37</sudoku_cell_height>
+<!--
+<sudoku_cell_width>138</sudoku_cell_width>
+<sudoku_cell_height>79</sudoku_cell_height>
+-->
+<shoot_time_gap>200</shoot_time_gap>
+<shoot_filter_size>7</shoot_filter_size>
+
+<!--Parameter for Armor Detection System-->
+<min_light_gray>210</min_light_gray>
+<min_light_height>8</min_light_height>
+<avg_contrast_threshold>110</avg_contrast_threshold>
+<light_slope_offset>30</light_slope_offset>
+<max_light_delta_h>500</max_light_delta_h>
+<min_light_delta_h>35</min_light_delta_h>
+<max_light_delta_v>40</max_light_delta_v>
+<max_light_delta_angle>30</max_light_delta_angle>
+<avg_board_gray_threshold>100</avg_board_gray_threshold>
+<avg_board_grad_threshold>25</avg_board_grad_threshold>
+<grad_threshold>25</grad_threshold>
+<br_threshold>30</br_threshold>
+
+<!--Parameter for Enemy Color, 0(default) means for red, otherwise blue-->
+<enemy_color>0</enemy_color>
+
+<!--Minimum / Maximun distance (cm) of detection-->
+<min_detect_distance>10.0</min_detect_distance>
+<max_detect_distance>600.0</max_detect_distance>
+
+<!--Parameter for Template-->
+<template_image_file>/home/ubuntu/projects/RMVision/RMVision/template.bmp</template_image_file>
+<small_template_image_file>/home/ubuntu/projects/RMVision/RMVision/small_template.bmp</small_template_image_file>
+
+<exposure_time>80</exposure_time>
+ 
+<video_width>640</video_width>
+<video_height>480</video_height>
+<video_fps>30</video_fps>
+<intrinsic_file_480>/home/ubuntu/projects/RMVision/RMVision/calibration-param/camera-RM3-06-640.xml</intrinsic_file_480>
+<intrinsic_file_720>/home/ubuntu/projects/RMVision/RMVision/calibration-param/camera-RM3-06.xml</intrinsic_file_720>
+
+
+
+<!--Parameter for Vision System Mode, 0(default) means for armor detection mode, 1 means for rune system mode-->
+<mode>0</mode>
+
+<!--Bullet speed (m/s)-->
+<bullet_speed>22</bullet_speed>
+
+<!--Scale factor of Z
+1.4596   // camrea 2
+1.5348   // camrea MH
+1.4714   // camrea RM3-01
+1.5348   // camrea RM3-02
+1.4939   // camrea RM3-03
+1.4704   // camrea RM3-04
+1.5158   // camrea RM3-05
+1.4657   // camrea RM3-06
+1.4558   // camrea RM3-07
+1.4861   // camrea RM3-08
+-->
+<scale_z>1</scale_z>
+
+</opencv_storage>

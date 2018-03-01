@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<launch>
+	<!-- INFANTRY_RED_0 -->
+	<!-- spawn single robot joystick_teleop -->
+	<group ns="/infantry_red_0">
+		<param name="tf_prefix" value="infantry_red_0" />
+		<arg name="namespace_arg" value="infantry_red_0"/>
+		<arg name="name" value="infantry_red_0"/>
+
+		<node pkg="joystick_teleop" type="joystick_teleop" name="joystick_teleop" output="screen"/>
+		<param name="axis_linear" value="1" type="int" />
+		<param name="axis_angular" value="0" type="int" />
+
+		<node respawn="true" pkg="joy" type="joy_node" name="joy_node">
+		<param name="dev" type="string" value="/dev/input/js0" />
+		<param name="deadzone" value="0.1" />
+		</node>
+	</group>
+        <!-- INFANTRY_RED_1 -->
+	<!-- spawn single robot joystick_teleop 
+	<group ns="/infantry_red_1">
+		<param name="tf_prefix" value="infantry_red_1" />
+		<arg name="namespace_arg" value="infantry_red_1"/>
+		<arg name="name" value="infantry_red_1"/>
+
+		<node pkg="joystick_teleop" type="joystick_teleop" name="joystick_teleop" output="screen"/>
+		<param name="axis_linear" value="1" type="int" />
+		<param name="axis_angular" value="0" type="int" />
+
+		<node respawn="true" pkg="joy" type="joy_node" name="joy_node">
+		<param name="dev" type="string" value="/dev/input/js1" />
+		<param name="deadzone" value="0.1" />
+		</node>
+	</group>
+-->
+        <!-- INFANTRY_BLUE_0 -->
+	<!-- spawn single robot joystick_teleop 
+	<group ns="/infantry_blue_0">
+		<param name="tf_prefix" value="infantry_blue_0" />
+		<arg name="namespace_arg" value="infantry_blue_0"/>
+		<arg name="name" value="infantry_blue_0"/>
+
+		<node pkg="joystick_teleop" type="joystick_teleop" name="joystick_teleop" output="screen"/>
+		<param name="axis_linear" value="1" type="int" />
+		<param name="axis_angular" value="0" type="int" />
+
+		<node respawn="true" pkg="joy" type="joy_node" name="joy_node">
+		<param name="dev" type="string" value="/dev/input/js2" />
+		<param name="deadzone" value="0.1" />
+		</node>
+	</group>
+-->
+        <!-- INFANTRY_BLUE_1 -->
+	<!-- spawn single robot joystick_teleop 
+	<group ns="/infantry_blue_1">
+		<param name="tf_prefix" value="infantry_blue_1" />
+		<arg name="namespace_arg" value="infantry_blue_1"/>
+		<arg name="name" value="infantry_blue_1"/>
+
+		<node pkg="joystick_teleop" type="joystick_teleop" name="joystick_teleop" output="screen"/>
+		<param name="axis_linear" value="1" type="int" />
+		<param name="axis_angular" value="0" type="int" />
+
+		<node respawn="true" pkg="joy" type="joy_node" name="joy_node">
+		<param name="dev" type="string" value="/dev/input/js3" />
+		<param name="deadzone" value="0.1" />
+		</node>
+	</group>
+-->
+</launch>
