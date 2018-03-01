@@ -75,9 +75,9 @@ $ rosrun infantry_vision image_prod_cons
 ```
 
 ## joystick teleop part:
-```Bash
+
 $ roslaunch joystick_teleop joystick_teleop.launch
-``` 
+ 
 
 ## navigation part:
 ```Bash
