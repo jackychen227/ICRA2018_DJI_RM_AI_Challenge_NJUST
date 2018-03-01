@@ -5,19 +5,19 @@ At the beginning of the project, we planned to create a stack of simulation envi
 
 In this project, we make integrated application of ROS(Kinetic) and GAZEBO to build the simulated model training platform.  
 
-Get  started
+# Get  started
 Robot simulation is an essential tool in every roboticist's toolbox. A well-designed simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo offers the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. 
 
-Packages brief description
+## Packages brief description
 package	description	state
 robots_description	main package of simulation environments	85% finished
 infantry_teleop_tools	infantry teleoperation with joystick and keyboard	OK
 infantry_2dnav	infantry navigation with the navigation stack	OK
 Vision	armor detecting package(refer to RoboMaster	developing
 	open-source code)
-Software Requirements
+## Software Requirements
 	• ROS kinetic (Ubuntu 16.04)
-Hardware
+## Hardware
 	• Processor: Intel® Core™ i5-6500 CPU @ 3.20GHz × 4 
 	• NVIDIA GeForce GT 750M, 2 GB memory size
 	• OS type: 64-bit
@@ -52,31 +52,31 @@ $ sudo apt-get install ros-kinetic-cv-bridge
 $ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
 $ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
 
-Build and Install
+# Build and Install
 ~$ cd catkin_ws/src/
 ~/catkin_ws/src$ git clone 
 ~/catkin_ws$ catkin_make
-Run
+# Run
 $ roscore
 $ roslaunch infantryb display.launch
 
-simulation part:
+## simulation part:
 Tip: We set the "gui" parameter false as default in order to ease the computing load of GPU, if you want to get the gazebo view, you can change the false to true in the launch file.
 
 $ roslaunch infantryb simulation_environments.launch
 
 
-armor detecting part:
+## armor detecting part:
 $ rosrun infantry_vision image_prod_cons 
 
 
 
 
-joystick teleop part:
+## joystick teleop part:
 $ roslaunch joystick_teleop joystick_teleop.launch
  
 
-navigation part:
+## navigation part:
 $ roslaunch infantryb gazebo_color.launch
 $ roslaunch infantry_2dnav move_base.launch
  
@@ -87,7 +87,7 @@ $ roslaunch infantry_2dnav move_base.launch
 
 
 
-Documents
+# Documents
 Please refer to the docs folder.
-Copyright and License
+# Copyright and License
 ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is provided under the BSD license.
