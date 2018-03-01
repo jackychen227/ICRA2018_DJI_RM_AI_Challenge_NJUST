@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="false"/>
+  <arg name="gui" default="false"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="world_name" value="$(find infantryb)/worlds/ICRA_3D_MAP.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 base_footprint base_link 40" />
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <arg name="model" value="$(find infantryb)/robots/infantry.xacro" />
+  <param name="robot_description" 
+	 command="$(find xacro)/xacro --inorder $(arg model)" />
+  
+  <arg name="use_gui" default="True" />
+  <param name="use_gui" value="$(arg use_gui)" />
+  <node
+    name="joint_state_publisher"
+    pkg="joint_state_publisher"
+    type="joint_state_publisher" />
+  <!-- start robot state publisher -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="state_publisher" />
+ 
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node
+    name="spawn_model_red_a"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="-param robot_description -urdf -x 3.5 -y 2.2 -model infantry_red_a"
+    output="screen" />  
+  
+    <node name="rviz" pkg="rviz" type="rviz" />
+  <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
+    <param name="base_link" value="base_footprint"/>
+  </node>
+
+
+  <node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+<node pkg="infantry_2dnav" type="teleop_joy" name="teleop_joy" />
+<!-- 
+<param name="axis_linear" value="1" type="int" />
+<param name="axis_angular" value="0" type="int" />
+-->
+
+<node respawn="true" pkg="joy" type="joy_node" name="joy_node">
+<param name="dev" type="string" value="/dev/input/js0" />
+<param name="deadzone" value="0.12" />
+</node>
+
+<node respawn="true" pkg="image_view" type="image_view" name="image_view">
+<remap from="image" to="/robot/camera1/image_raw" />
+</node>
+
+
+
+</launch>

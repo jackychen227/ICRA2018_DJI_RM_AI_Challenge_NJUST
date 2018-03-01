@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
+	name="infantry_xacro">
+<!--
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" 
+ 	xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+    	xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+    	xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+	name="infantry_xacro">
+-->
+        <xacro:include filename="$(find infantryb)/robots/infantryb.urdf.xacro" />
+        <xacro:include filename="$(find infantryb)/robots/infantry.gazebo.xacro" />
+        <xacro:include filename="$(find infantryb)/robots/infantry.transmission.xacro" />
+
+        <xacro:led_color name="Red"/>
+</robot>

@@ -1,0 +1,64 @@
+# Publish all joint states -----------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50  
+
+# base Controllers ---------------------------------------
+base_controller:  
+  type: steered_wheel_base_controller/SteeredWheelBaseController
+  pid_gains:  
+    wheel_joint_fl: {p: 100.0, i: 0.0, d: 1.0}  
+    caster_joint_fl: {p: 100.0, i: 0.0, d: 1.0}  
+    wheel_joint_fr: {p: 100.0, i: 0.0, d: 1.0}  
+    caster_joint_fr: {p: 100.0, i: 0.0, d: 1.0}  
+    wheel_joint_bl: {p: 100.0, i: 0.0, d: 1.0}  
+    caster_joint_bl: {p: 100.0, i: 0.0, d: 1.0}  
+    wheel_joint_br: {p: 100.0, i: 0.0, d: 1.0}  
+    caster_joint_br: {p: 100.0, i: 0.0, d: 1.0}    
+  
+  base_frame: base_footprint  
+  
+  linear_speed_limit: 1.5  
+  linear_acceleration_limit: 2.5  
+  linear_deceleration_limit: 2.5  
+  
+  yaw_speed_limit: 3.0  
+  yaw_acceleration_limit: 3.2  
+  yaw_deceleration_limit: 3.2  
+  
+  cmd_vel_timeout: 0.0  # disabled, as it is on the real platform  
+  
+  wheels:  
+    - steering_joint: caster_joint_fl  
+      axle_joint: wheel_joint_fl  
+      diameter: 0.095  
+    - steering_joint: caster_joint_fr  
+      axle_joint: wheel_joint_fr  
+      diameter: 0.095  
+    - steering_joint: caster_joint_bl  
+      axle_joint: wheel_joint_bl  
+      diameter: 0.095  
+    - steering_joint: caster_joint_br  
+      axle_joint: wheel_joint_br  
+      diameter: 0.095  
+
+# cradlehead Controllers ---------------------------------------
+cradlehead Controllers:
+  type: position_controllers/JointPositionController
+  joints: 
+    - base_link_to_yaw_joint
+    - base_link_to_pitch_joint
+  gains:
+    base_link_to_yaw_joint: {p: 1300.0, i: 10, d: 10.0}
+    base_link_to_pitch_joint: {p: 1300.0, i: 10, d: 10.0}
+
+
+# Position Controllers ---------------------------------------
+yaw_position_controller:
+  type: position_controllers/JointPositionController
+  joint: base_link_to_yaw_joint
+  pid: {p: 1300.0, i: 10, d: 10.0}
+pitch_position_controller:
+  type: position_controllers/JointPositionController
+  joint: base_link_to_pitch_joint
+  pid: {p: 1300.0, i: 10, d: 10.0}

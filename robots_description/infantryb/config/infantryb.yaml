@@ -1,0 +1,15 @@
+infantryb:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  yaw_position_controller:
+    type: position_controllers/JointPositionController
+    joint: base_link_to_yaw_joint
+    pid: {p: 1300.0, i: 10, d: 10.0}
+  pitch_position_controller:
+    type: position_controllers/JointPositionController
+    joint: base_link_to_pitch_joint
+    pid: {p: 1300.0, i: 10, d: 10.0}

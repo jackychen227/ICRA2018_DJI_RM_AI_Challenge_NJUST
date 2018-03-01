@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<launch>
+
+<!-- these are the arguments you can pass this launch file, for example gui:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="false"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  
+  <!-- launch the ICRA RM AI challenge 3D map in gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="world_name" value="$(find infantryb)/worlds/ICRA_3D_MAP.world"/>
+    <arg name="debug" value="$(arg debug)" />
+    <arg name="gui" value="$(arg gui)" />
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="headless" value="$(arg headless)"/>
+  </include>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <!-- spawn general model for the infantry -->
+  <arg name="model" value="$(find infantryb)/robots/infantry.xacro" />
+  <param name="robot_description" 
+	 command="$(find xacro)/xacro --inorder $(arg model)" />
+
+  <!-- joystick_teleop for infantry -->
+  <include file="$(find joystick_teleop)/launch/joystick_teleop.launch"/>
+
+
+  <!-- INFANTRY_RED_0 -->
+  <!-- spawn single robot -->
+  <group ns="/infantry_red_0">
+    <param name="tf_prefix" value="infantry_red_0" />
+
+    <include file="$(find infantryb)/launch/spawn_infantry_red.launch">
+      <arg name="name" value="infantry_red_0"/>
+      <arg name="pos_x" value="2.8"/>
+      <arg name="pos_y" value="2.2"/>
+      <arg name="pos_z" value="0.0"/>
+      <arg name="pos_R" value="1.7"/>
+      <arg name="namespace_arg" value="infantry_red_0"/>
+    </include>
+  </group>
+
+  <!-- INFANTRY_RED_1 -->
+  <!-- spawn single robot -->
+  <group ns="/infantry_red_1">
+    <param name="tf_prefix" value="infantry_red_1" />
+
+    <include file="$(find infantryb)/launch/spawn_infantry_red.launch">
+      <arg name="name" value="infantry_red_1"/>
+      <arg name="pos_x" value="3.5"/>
+      <arg name="pos_y" value="2.2"/>
+      <arg name="pos_z" value="0.0"/>
+      <arg name="pos_R" value="0"/>
+      <arg name="namespace_arg" value="infantry_red_1"/>
+    </include>
+  </group>
+
+  <!-- INFANTRY_BLUE_0 -->
+  <!-- spawn single robot -->
+  <group ns="/infantry_blue_0">
+    <param name="tf_prefix" value="infantry_blue_0" />
+
+    <include file="$(find infantryb)/launch/spawn_infantry_blue.launch">
+      <arg name="name" value="infantry_blue_0"/>
+      <arg name="pos_x" value="-3.5"/>
+      <arg name="pos_y" value="-2.2"/>
+      <arg name="pos_z" value="0"/>
+      <arg name="pos_R" value="3.14159"/>
+      <arg name="namespace_arg" value="infantry_blue_0"/>
+    </include>
+  </group>
+
+
+  <!-- INFANTRY_BLUE_1 -->
+  <!-- spawn single robot -->
+  <group ns="/infantry_blue_1">
+    <param name="tf_prefix" value="infantry_blue_1" />
+
+    <include file="$(find infantryb)/launch/spawn_infantry_blue.launch">
+      <arg name="name" value="infantry_blue_1"/>
+      <arg name="pos_x" value="3.5"/>
+      <arg name="pos_y" value="2.2"/>
+      <arg name="pos_z" value="0"/>
+      <arg name="pos_R" value="3.14159"/>
+      <arg name="namespace_arg" value="infantry_blue_1"/>
+    </include>
+  </group>
+
+
+</launch>

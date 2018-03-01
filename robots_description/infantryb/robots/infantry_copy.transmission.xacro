@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot name="youbot" xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+
+    <transmission name="wheel_trans_fl">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wheel_joint_fl"/>
+      <actuator name="wheel_motor_fl">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>${wheel_mechanical_reduction}</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+  <property name="wheel_mechanical_reduction" value="${624/35 * 80/18}"/>
+  <property name="caster_mechanical_reduction" value="${624/35 * 80/18}"/>
+
+<!-- Macro Transmissions for ROS Control -->
+    <xacro:macro name="transmission_block_1" params="joint_name">
+	  <transmission name="${joint_name}_tran">
+	    <type>transmission_interface/SimpleTransmission</type>
+	    <joint name="${joint_name}">
+	      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    </joint>
+	    <actuator name="${joint_name}_motor">
+	      <hardwareInterface>EffortJointInterface</hardwareInterface>
+	      <mechanicalReduction>1</mechanicalReduction>
+	    </actuator>
+	  </transmission>
+   </xacro:macro>
+<!-- Macro Transmissions for ROS Control -->
+    <xacro:macro name="transmission_block_2" params="joint_name">
+	  <transmission name="${joint_name}_tran">
+	    <type>transmission_interface/SimpleTransmission</type>
+	    <joint name="${joint_name}">
+	      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	    </joint>
+	    <actuator name="${joint_name}_motor">
+	      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+	      <mechanicalReduction>1</mechanicalReduction>
+	    </actuator>
+	  </transmission>
+   </xacro:macro>
+<!-- Transmissions for ROS Control -->
+   <xacro:transmission_block_2 joint_name="base_link_to_yaw_joint"/>
+   <xacro:transmission_block_2 joint_name="base_link_to_pitch_joint"/>
+
+</robot>

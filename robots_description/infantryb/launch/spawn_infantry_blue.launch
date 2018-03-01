@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <arg name="name" default="infantry"/>
+  <arg name="pos_x" default="0.0"/>
+  <arg name="pos_y" default="0.0"/>
+  <arg name="pos_z" default="0.0"/>
+  <arg name="pos_R" default="0.0"/>
+  <arg name="namespace_arg" default=""/>
+
+  <node
+    name="tf_footprint_base"
+    pkg="tf"
+    type="static_transform_publisher"
+    args="0 0 0 0 0 0 $(arg namespace_arg)/base_footprint $(arg namespace_arg)/base_link 40" />
+
+  <!-- start robot state publisher -->
+  <node
+    name="robot_state_publisher"
+    pkg="robot_state_publisher"
+    type="state_publisher" />
+
+<!-- ros controller_manager spawn controller_manager -->
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find infantryb)/config/infantry_control.yaml" command="load" />
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" 
+	args="joint_state_controller
+	      yaw_position_controller
+	      pitch_position_controller"/>
+
+<!-- gazebo_ros spawn_robot -->
+  <arg name="robot_model" default="$(find infantryb)/robots/infantry_blue.xacro" />
+  <param name="infantry_description" 
+         command="$(find xacro)/xacro --inorder $(arg robot_model)" />
+
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+    args="-param infantry_description
+    -urdf
+    -x $(arg pos_x)
+    -y $(arg pos_y)
+    -z $(arg pos_z)
+    -R 0
+    -P 0
+    -Y $(arg pos_R)
+    -model $(arg name)"
+    respawn="false" 
+    output="screen">
+  </node>
+<!-- joystick teleop
+  <node name="joy_node" pkg="joy" type="joy_node" />
+  <node pkg="joystick_teleop" type="joystick_teleop" name="joystick_teleop" />
+-->
+
+</launch>
