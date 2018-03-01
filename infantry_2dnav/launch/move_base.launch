@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  
+  <!-- Run the map server -->
+   <node name="map_server" pkg="map_server" type="map_server" args="$(find infantry_2dnav)/map/icra.yaml" output="screen"/>
+
+  <include file="$(find infantry_2dnav)/launch/amcl_infantry.launch" /> 
+  <include file="$(find infantry_2dnav)/launch/teleop_joy.launch"/> 
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="controller_frequency" value="10.0"/>
+    <param name="controller_patiente" value="15.0"/>
+    <rosparam file="$(find infantry_2dnav)/config/common_costmap_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find infantry_2dnav)/config/common_costmap_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find infantry_2dnav)/config/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find infantry_2dnav)/config/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find infantry_2dnav)/config/base_local_planner_params.yaml" command="load" />
+  </node>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find infantry_2dnav)/config/infantry_navigation.rviz" />
+</launch>
