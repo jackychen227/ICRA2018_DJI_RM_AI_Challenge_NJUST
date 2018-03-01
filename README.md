@@ -64,29 +64,36 @@ $ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
 $ roscore
 $ roslaunch infantryb display.launch
 ```
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantryb%20display.png)
 ## simulation part:
 Tip: We set the "gui" parameter false as default in order to ease the computing load of GPU, if you want to get the gazebo view, you can change the false to true in the launch file.
 ```Bash
 $ roslaunch infantryb simulation_environments.launch
 ```
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_1.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_2.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_3.png)
 
 ## armor detecting part:
 ```Bash
 $ rosrun infantry_vision image_prod_cons 
 ```
-
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/image_prod_cons_1.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/image_prod_cons_2.png)
 ## joystick teleop part:
 ```Bash
 $ roslaunch joystick_teleop joystick_teleop.launch
 ```
-
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/joystick_teleop.png)
 ## navigation part:
 
 $ roslaunch infantryb gazebo_color.launch
 $ roslaunch infantry_2dnav move_base.launch
-
-
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_1.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_2.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_3.png)
+![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_4.png)
 # Documents
-Please refer to the docs folder.
+Please refer to the [docs](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/tree/master/docs) folder.
 # Copyright and License
 ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is provided under the BSD license.
