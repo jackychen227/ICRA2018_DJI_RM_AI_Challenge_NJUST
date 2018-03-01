@@ -1,5 +1,5 @@
 # ICRA2018_DJI_RM_AI_Challenge_NJUST
-ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is a stack for the research of RoboMaster AI challenge, developed by team Alliance at NJUST. This repository mainly focuses on the simulation part.
+ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is a stack for the research of [RoboMaster AI challenge](https://www.robomaster.com/zh-CN/resource/pages/729?type=announcementSub), developed by team Alliance at NJUST. This repository mainly focuses on the simulation part.
 
 At the beginning of the project, we planned to create a stack of simulation environment to test our algorithm and train our deep reinforcement learning based decision making model. Then we would put it into practice. After weeks of brokenly developing, we basically got the simulation part done with some flaw. Considering our limited time and effort, we decide to make the simulation part an open-source software stack. It will be our great pleasure if the stack do something useful during your development.
 
