@@ -55,7 +55,7 @@ catkin_make
 
 # Run
 ```Bash
-roscore
+roscore &
 roslaunch infantryb display.launch
 ```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantryb%20display.png)
