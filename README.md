@@ -48,7 +48,8 @@ sudo apt-get install ros-kinetic-joy ros-kinetic-map-server ros-kinetic-amcl ros
 # Build and Install
 ```Bash
 cd catkin_ws/src/
-git clone 
+git clone https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST
+cd ..
 catkin_make
 ```
 
