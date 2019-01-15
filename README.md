@@ -8,7 +8,7 @@ In this project, we make integrated application of ROS(Kinetic) and GAZEBO to bu
 # Get  started
 Robot simulation is an essential tool in every roboticist's toolbox. A well-designed simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo offers the ability to accurately and efficiently simulate populations of robots in complex indoor and outdoor environments. 
 
-## Packages brief description
+## Description of Packages
 	• robots_description: main package of simulation environments(85% finished)
 	• infantry_teleop_tools: infantry teleoperation with joystick and keyboard(OK)
 	• infantry_2dnav: infantry navigation with the navigation stack(OK)
@@ -24,71 +24,65 @@ Tip: Recommend not to deploy this project with virtual machine.
 #### Install ROS
 Please follow [the installing and configuring ROS environment tutorial](http://wiki.ros.org/kinetic/Installation/Ubuntu) on ROS Wiki.
 ```Bash
-$ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-$ sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-$ sudo apt-get update
-$ sudo apt-get install ros-kinetic-desktop-full
-$ sudo rosdep init
-$ rosdep update
-$ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-$ source ~/.bashrc
-$ sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
+sudo apt-get update
+sudo apt-get install ros-kinetic-desktop-full
+sudo rosdep init
+rosdep update
+echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
 
-$ mkdir -p ~/catkin_ws/src
-$ cd catkin_ws/src/
-~/catkin_ws/src$ catkin_init_workspace
-~/catkin_ws/src$ cd ..
-~/catkin_ws$ catkin_make
-$ echo "source /home/cqw/catkin_ws/devel/setup.bash" >> ~/.bashrc
+mkdir -p ~/catkin_ws/src
+cd catkin_ws/src/
+catkin_init_workspace
+cd ..
+catkin_make
+echo "source /home/$USER/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
-#### Third-party Library
+#### Install Third-party Library
 ```Bash
-$ sudo apt-get install ros-kinetic-joy
-$ sudo apt-get install ros-kinetic-map-server
-$ sudo apt-get install ros-kinetic-amcl
-$ sudo apt-get install ros-kinetic-move-base
-$ sudo apt-get install ros-kinetic-controller-manager
-$ sudo apt-get install ros-kinetic-cv-bridge
-$ sudo apt-get install ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control
-$ sudo apt-get install ros-kinetic-ros-control ros-kinetic-ros-controllers
+sudo apt-get install ros-kinetic-joy ros-kinetic-map-server ros-kinetic-amcl ros-kinetic-move-base ros-kinetic-controller-manager ros-kinetic-cv-bridge ros-kinetic-gazebo-ros-pkgs ros-kinetic-gazebo-ros-control ros-kinetic-ros-control ros-kinetic-ros-controllers
 ```
 # Build and Install
 ```Bash
-~$ cd catkin_ws/src/
-~/catkin_ws/src$ git clone 
-~/catkin_ws$ catkin_make
+cd catkin_ws/src/
+git clone 
+catkin_make
 ```
 
 # Run
 ```Bash
-$ roscore
-$ roslaunch infantryb display.launch
+roscore
+roslaunch infantryb display.launch
 ```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantryb%20display.png)
-## simulation part:
+## Simulation:
 Tip: We set the "gui" parameter false as default in order to ease the computing load of GPU, if you want to get the gazebo view, you can change the false to true in the launch file.
 ```Bash
-$ roslaunch infantryb simulation_environments.launch
+roslaunch infantryb simulation_environments.launch
 ```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_1.png)
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_2.png)
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/simulation_environments_3.png)
 
-## armor detecting part:
+## Armor Detection:
 ```Bash
-$ rosrun infantry_vision image_prod_cons 
+rosrun infantry_vision image_prod_cons 
 ```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/image_prod_cons_1.png)
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/image_prod_cons_2.png)
-## joystick teleop part:
+## Joystick Teleoperation:
 ```Bash
-$ roslaunch joystick_teleop joystick_teleop.launch
+roslaunch joystick_teleop joystick_teleop.launch
 ```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/joystick_teleop.png)
-## navigation part:
-
-$ roslaunch infantryb gazebo_color.launch
-$ roslaunch infantry_2dnav move_base.launch
+## Navigation:
+```Bash
+roslaunch infantryb gazebo_color.launch
+roslaunch infantry_2dnav move_base.launch
+```
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_1.png)
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_2.png)
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_3.png)
