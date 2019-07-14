@@ -90,5 +90,8 @@ roslaunch infantry_2dnav move_base.launch
 ![Image text](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/blob/master/docs/images/infantry_2dnav_4.png)
 # Documents
 Please refer to the [docs](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_NJUST/tree/master/docs) folder.
+# [ICRA2018_DJI_RM_AI_Challenge_Pygame](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_Pygame)
+Modeling and Simulation of ICRA2018 DJI RM AI Challenge in Pygame，please refer to [Linkage](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_Pygame) for more details.
+![pygame_simulation](https://github.com/jackychen227/ICRA2018_DJI_RM_AI_Challenge_Pygame/blob/master/DOC/images/pygame_simulation.jpg)
 # Copyright and License
 ICRA2018_DJI_RM_AI_CHALLENGE_NJUST is provided under the BSD license.
